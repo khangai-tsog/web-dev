@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, jsonify, render_template
 
 # Creating a WSGI application (Python web application)
 app = Flask(__name__)
