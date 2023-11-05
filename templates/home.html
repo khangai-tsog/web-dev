@@ -12,40 +12,84 @@
       .overflow-fix{
         overflow: auto;
       }
+      .anchor{
+        scroll-margin-top: 75px;
+      }
+      .thumbnail {
+        position: relative;
+        z-index: 0;
+      }
+      .thumbnail:hover {
+        background-color: transparent;
+        z-index: 50;
+      }
+      .thumbnail span {
+        /*CSS for enlarged image*/
+        position: absolute;
+        background-color: lightyellow;
+        padding: 5px;
+        left: -100px;
+        border: 1px dashed gray;
+        visibility: hidden;
+        color: black;
+        text-decoration: none;
+      }
+      .thumbnail span img {
+        /*CSS for enlarged image*/
+        border-width: 0;
+        padding: 2px;
+        height: 300px;
+      }
+      .thumbnail:hover span {
+        /*CSS for enlarged image on hover*/
+        visibility: visible;
+        top: 0;
+        left: 60px; /*position where enlarged image should offset horizontally */
+      }
+      header{
+        background-color: black;
+        color: white;
+      }
     </style>
   </head>
   <body>
     <!-- The actual information that is rendered on the webpage -->
-    <div class="container">
-      <p class="text-center mt-2 mb-4">
-        ホーム 自己紹介 学歴 インターンシップ 履歴書 連絡先 
-      </p>
-      
-      <p>
-        TODO add the floating circle that takes you to the home page
-      </p>
-      <div class="col-sm-4"> </div>
-      <div class="col-sm-4 text-center mt-2 mb-4 overflow-fix lead border border-secondary">
-        <img class="img-fluid float-end border border-primary" style="height: 100px;" src="https://web-dev.khangai8888.repl.co/static/portrait.jpeg">
-        Hi! I'm
-        <b>
-          KHANGAI (ガイ) 
-        </b>
-        <br>
-        And I am a senior student at UEC
-        <br>
-        majoring in Computer Science.
+    {% include 'nav.html' %}
+    <div class="container" style="margin-bottom: 50px">
+      <div class="row">
+        <div class="col-sm-2"> </div>
+        <div class="col-sm-8 text-center mt-2 mb-4 overflow-fix lead border border-secondary">
+          <img class="img-fluid float-end" style="height: 100px;" src="https://web-dev.khangai8888.repl.co/static/portrait.jpeg">
+          Hi! I'm
+          <b>
+            KHANGAI (ガイ) 
+          </b>
+          <br>
+          And I am a senior student at UEC
+          <br>
+          majoring in Computer Science.
+        </div>
+        <div class="col-sm-2"> </div>
       </div>
-      <div class="col-sm-4"> </div>
       
-      <h2 class="mt-2 mb-4">
+      <h2 class="anchor mt-2 mb-4" id="introduction">
         自己紹介
       </h2>
       <p>
-        Bla bla bla
+        はじめまして、ツォグバドラフ・ハンガイと申します。ガイと呼んでください。
+        <br>
+        日本には文部科学省の奨学金に合格し、5年前にモンゴルから参りました。
+        それで、東京で日本語を1年間勉強し、
+        鶴岡高専に編入して電気電子工学科を卒業しました。
+        <br>
+        その後、電気通信大学に3年次編入し、来年の3月に卒業する予定です。
+        大学の専攻はコンピュータサイエンスです。
+        <br>
+        私の趣味はバスケットボール、プログラミング、料理作りです。
+
       </p>
 
-      <h2 class="mt-2 mb-4">
+      <h2 class="anchor mt-2 mb-4" id="education">
         学歴
       </h2>
       <div>
@@ -54,7 +98,7 @@
         {% endfor %}
       </div>
 
-      <h2 class="mt-2 mb-4">
+      <h2 class="anchor mt-2 mb-4" id="intern">
         インターンシップ
       </h2>
       <div>
@@ -63,33 +107,51 @@
         {% endfor %}
       </div>
   
-      <h2 class="mt-2 mb-4">
+      <h2 class="anchor mt-2 mb-4" id="resume">
         履歴書
       </h2>
-      <p> TO DO make the resume pictures visible when hovering</p>
       <div class="row">
-        <div class="col-4">
-          <img src = "https://web-dev.khangai8888.repl.co/static/jresume.png" height="100">
-          <button> 
+        <div class="col-6">
+          <a class="thumbnail" href="#thumb">
+            <img src="https://web-dev.khangai8888.repl.co/static/jresume.png" height="100px" border="0" />
+            <span>
+              <img src="https://web-dev.khangai8888.repl.co/static/jresume.png" />
+            </span>
+          </a>
+          <button > 
             ダウンロード
           </button>
         </div>
-        <div class="col-8">
-          <img src = "https://web-dev.khangai8888.repl.co/static/resume.png" height="100">
+        <div class="col-4 float-center">
+          <a class="thumbnail" href="#thumb">
+            <img src="https://web-dev.khangai8888.repl.co/static/resume.png" height="100px" border="0" />
+            <span>
+              <img src="https://web-dev.khangai8888.repl.co/static/resume.png" />
+            </span>
+          </a>
           <button> 
             Download
           </button>
         </div>
       </div>
-  
-      <h2 class="mt-2 mb-4">
+
+      <h2 class="anchor mt-2 mb-4" id="contact">
         連絡先
       </h2>
-      <p>
-        TODO
-        Add gmail, github, and contact section that takes name, email, and message
-      </p>
-      <button> Contact </button>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <a href="mailto:khangai8888@gmail.com">
+              <img class="img-fluid float-start" src="https://web-dev.khangai8888.repl.co/static/gmail.png" height="30px">
+            </a>
+          </div>
+          <div class="col">
+            <a href="https://github.com/khangai-tsog">
+              <img class="img-fluid float-start" src="https://web-dev.khangai8888.repl.co/static/github.png" height="30px">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
