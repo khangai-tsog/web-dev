@@ -82,6 +82,11 @@
       <h2>
         Internships
       </h2>
+      <div style="color: white;">
+        {% for intern in internship %}
+          {% include 'internitem.html' %}
+        {% endfor %}
+      </div>
   
       <h2>
         Resume

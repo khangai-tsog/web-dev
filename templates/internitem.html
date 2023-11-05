@@ -1,0 +1,20 @@
+<div style="margin-bottom:16px;"> 
+  <h4 style="color: gray;">
+    {{intern['company']}}
+  </h4>
+  {% if 'position' in intern %}
+  <div>
+    <b>内容:</b> {{intern['position']}} 
+  </div>
+  {% endif %}
+  {% if 'date' in intern %}
+  <div>
+    <b>年月:</b> {{intern['date']}} 
+  </div>
+  {% endif %}
+  {% if 'duration' in intern %}
+  <div>
+    <b>期間:</b> {{intern['duration']}} 
+  </div>
+  {% endif %}
+</div>
