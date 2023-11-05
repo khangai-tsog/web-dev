@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Includes any headings such as titles,
+         any CSS style files or JS interactive files
+         we need to render the body-->
+    <title> Tsogbadrakh Khangai Intro</title>
+    <style>
+      #container{
+        max-width: 720px;
+        margin: 0 auto 0 auto;
+      }
+      #namebox {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      h1 {
+        font-size: 40px;
+        font-family: Roboto;
+        font-weight: normal;
+        color: white;
+      }
+      #portrait {
+        height: 100px;
+        float: right;
+        object-fit: cover;
+      }
+      body {
+        background-color: black;
+      }
+      p {
+        font-family: Roboto;
+        color: white;
+      }
+      h2 {
+        font-size: 32px;
+        font-family: Roboto;
+        font-weight: normal;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The actual information that is rendered on the webpage -->
+    <div id="container">
+      <p style="text-align: center;">
+        Home About Experiences Resume 
+      </p>
+      
+      <p>
+        TODO add the floating circle that takes you to the home page
+      </p>
+      <div id="namebox">
+        <h1>
+        Hi! I'M 
+        Khangai (ガイ) 
+        </h1>
+        <img id="portrait" src="https://web-dev.khangai8888.repl.co/static/portrait.jpeg">
+      </div>
+      
+      <p>
+        And I am a senior student at the University of Electro-Communications majoring in Computer Science.
+      </p>
+      
+      <h2>
+        About Me
+      </h2>
+      <p>
+        Bla bla bla
+      </p>
+
+      <h2>
+        Education
+      </h2>
+      <div style="color: white;">
+        {% for edu in education %}
+          {% include 'eduitem.html' %}
+        {% endfor %}
+      </div>
+
+      <h2>
+        Internships
+      </h2>
+  
+      <h2>
+        Resume
+      </h2>
+      <p> TO DO make the resume pictures visible when hovering</p>
+      <img src = "https://web-dev.khangai8888.repl.co/static/resume.png" height = "100">
+      <img src = "https://web-dev.khangai8888.repl.co/static/jresume.png" height = "100">
+      <button> Download English Resume
+      </button>
+      <button> 履歴書をダウンロード
+      </button>
+  
+      <h2>
+        Contact Me
+      </h2>
+      <p>
+        TODO
+        Add gmail, github, and contact section that takes name, email, and message
+      </p>
+      <button> Contact </button>
+    </div>
+  </body>
+</html>

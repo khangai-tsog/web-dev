@@ -1,0 +1,25 @@
+<div style="margin-bottom:16px;"> 
+  <h4 style="color: gray;">
+    {{edu['school']}}
+  </h4>
+  {% if 'department' in edu %}
+  <div>
+    <b>学科:</b> {{edu['department']}} 
+  </div>
+  {% endif %}
+  {% if 'major' in edu %}
+  <div>
+    <b>専攻:</b> {{edu['major']}} 
+  </div>
+  {% endif %}
+  {% if 'degree' in edu %}
+  <div>
+    <b>学位:</b> {{edu['degree']}} 
+  </div>
+  {% endif %}
+  {% if 'year' in edu %}
+  <div>
+    <b>業年:</b> {{edu['year']}} 
+  </div>
+  {% endif %}
+</div>
