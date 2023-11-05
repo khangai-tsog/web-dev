@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 # Creating a WSGI application (Python web application)
 app = Flask(__name__)
@@ -61,6 +61,15 @@ def hello_world():
                         education=Education,
                         internship=Internship)
 
+# Listing the education and internship items as JSON
+@app.route("/api/education")
+def list_education():
+  return jsonify(Education)
+
+@app.route("/api/internship")
+def list_internship():
+  return jsonify(Internship)
+  
 # Letting the app run without changing the replit file
 # Port 8080 typically used for web servers
 # Host 0.0.0.0 allows connections from anywhere, anyone
